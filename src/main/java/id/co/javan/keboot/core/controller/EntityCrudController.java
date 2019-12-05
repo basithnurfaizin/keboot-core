@@ -19,7 +19,7 @@ import java.util.Map;
 public class EntityCrudController<T, ID, FORM extends EntityCrudForm<T>> {
     protected EntityCrudService<T, ID, FORM> entityCrudService;
 
-    public Page<T> list(int page, int size, String keyword) {
+    public Page<T> list(int page, int size, Object... keyword) {
         Pageable pageable = PageRequest.of(page, size);
         return entityCrudService.search(pageable, keyword);
     }
