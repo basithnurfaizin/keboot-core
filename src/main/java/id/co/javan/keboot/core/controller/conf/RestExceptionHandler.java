@@ -25,7 +25,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         // send response
-        Map response = new HashMap();
+        Map<String, Object> response = new HashMap<>();
 
         if(ex instanceof BadRequestException) {
             response.put("error_code", ((BadRequestException) ex).getCode());

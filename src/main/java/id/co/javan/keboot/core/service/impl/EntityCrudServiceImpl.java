@@ -1,5 +1,7 @@
 package id.co.javan.keboot.core.service.impl;
 
+import id.co.javan.keboot.core.exception.ErrorCode;
+import id.co.javan.keboot.core.exception.NotFoundException;
 import id.co.javan.keboot.core.form.EntityCrudForm;
 import id.co.javan.keboot.core.repository.EntityCrudRepository;
 import org.springframework.data.domain.Page;
@@ -27,7 +29,7 @@ public abstract class EntityCrudServiceImpl<T, ID, FORM extends EntityCrudForm<T
     }
 
     public T get(ID id) {
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow(() -> new NotFoundException(ErrorCode.DATA_NOT_FOUND.getMessage()));
     }
 
     public T create(FORM form) {

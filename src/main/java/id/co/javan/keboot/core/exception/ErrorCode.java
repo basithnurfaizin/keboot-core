@@ -8,7 +8,7 @@ public enum ErrorCode {
     ERROR_VALIDATION("Error Validation"),
     DATA_NOT_FOUND("Data not found");
 
-    private String message;
+    private final String message;
 
     ErrorCode(String message) {
         this.message = message;
